@@ -3,14 +3,8 @@ name: Публикация релиза
 on:
   release:
     types:
-      - published
-  workflow_dispatch:
-    inputs:
-      pool:
-        description: Пул хаба
-        required: false
-        default: default
-
+      - unpublished
+      
 permissions:
   contents: read
   id-token: write
@@ -19,6 +13,7 @@ jobs:
   release:
     uses: autumn-library/workflows/.github/workflows/release.yml@v1
     with:
+      oscript_version: stable
       package_mask: "optional-*.ospx"
       trusted_publishing: true
-      pool: ${{ inputs.pool }}
+      
