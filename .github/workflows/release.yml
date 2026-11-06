@@ -3,7 +3,7 @@ name: Публикация релиза
 on:
   release:
     types:
-      - unpublished
+      - published
       
 permissions:
   contents: read
